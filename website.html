@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage Jérémy & Lucas - 12 Juin 2026</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Polices Google (Poppins pour le corps, Great Vibes pour le script) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icônes (pour le programme) -->
+    <script src="https://unpkg.com/lucide-react@0.378.0/dist/umd/lucide.min.js"></script>
+
+    <!-- Configuration personnalisée de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#739960', // VERT
+                        'brand-accent': '#ffeb7f', // GOLD
+                        'brand-neutral': '#e6e7e7', // GREY
+                        'brand-lightbg': '#f7f7f7', // Fond neutre clair
+                        'brand-darktext': '#4a4a4a', // Texte principal
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'script': ['Great Vibes', 'cursive'],
+                    },
+                    backgroundImage: {
+                        'mountain-pattern': "url('https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/mountains.svg')",
+                        'vine-pattern': "url('https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/pattern.svg')",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Styles personnalisés */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Classe pour la bordure décorative montagnes */
+        .mountain-border {
+            background-image: url('https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/mountains.svg');
+            background-repeat: repeat-x;
+            background-position: bottom center;
+            background-size: contain;
+            height: 100px; /* Ajustez la hauteur selon vos besoins */
+            width: 100%;
+        }
+        
+        /* Classe pour le fond décoratif vignes (utilisé avec opacité) */
+        .vine-background {
+            background-image: url('https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/pattern.svg');
+            background-repeat: repeat;
+            background-position: center center;
+        }
+        
+        /* Ajustement pour les icônes Lucide */
+        .lucide-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+<body class="bg-brand-lightbg font-sans text-brand-darktext">
+
+    <!-- =========== En-tête et Navigation =========== -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Initiales à gauche -->
+                <div class="flex-shrink-0">
+                    <a href="#accueil" class="font-script text-3xl text-brand-primary">
+                        J & L
+                    </a>
+                </div>
+                <!-- Liens de navigation (pour écrans larges) -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#accueil" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
+                        <a href="#programme" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Programme</a>
+                        <a href="#lieux" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Lieux</a>
+                        <a href="#infos" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Infos Pratiques</a>
+                        <a href="#rsvp" class="bg-brand-primary text-white hover:bg-opacity-90 px-3 py-2 rounded-md text-sm font-medium">RSVP</a>
+                    </div>
+                </div>
+                <!-- Menu Burger (pour mobiles) -->
+                <div class="sm:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-brand-primary p-2 rounded-md">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#accueil" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                <a href="#programme" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Programme</a>
+                <a href="#lieux" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Lieux</a>
+                <a href="#infos" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Infos Pratiques</a>
+                <a href="#rsvp" class="block bg-brand-primary text-white hover:bg-opacity-90 px-3 py-2 rounded-md text-base font-medium">RSVP</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========== Section Accueil =========== -->
+    <section id="accueil" class="pt-16 pb-20 text-center relative overflow-hidden">
+        <!-- Fond décoratif vignes (léger) -->
+        <div class="absolute inset-0 vine-background opacity-10"></div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <!-- Logo Monogramme -->
+            <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/dessin.svg" alt="Monogramme J&L" class="w-48 h-48 mx-auto mb-6">
+            
+            <h1 class="font-script text-7xl sm:text-9xl text-brand-primary mb-4">
+                Jérémy & Lucas
+            </h1>
+            <p class="font-sans text-xl sm:text-2xl font-light text-brand-darktext mb-6">
+                Nous sommes heureux de vous inviter à notre mariage
+            </p>
+            <h2 class="font-sans text-3xl sm:text-4xl font-semibold text-brand-primary tracking-wider">
+                LE 12 JUIN 2026
+            </h2>
+        </div>
+    </section>
+
+    <!-- =========== Section Programme =========== -->
+    <section id="programme" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-script text-6xl text-brand-primary mb-4">Le Programme</h2>
+            <p class="text-center text-lg text-brand-darktext mb-12 max-w-2xl mx-auto">
+                Voici le déroulé de notre journée de mariage. Nous avons hâte de partager ces moments avec vous.
+            </p>
+
+            <div class="space-y-12">
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">17h00</span>
+                        <span class="block text-sm text-gray-500">Vendredi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="building" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Cérémonie Civile</h3>
+                        <p class="text-lg text-gray-600">Mairie de Colmar</p>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">18h00</span>
+                        <span class="block text-sm text-gray-500">Vendredi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="glass-water" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Soirée de Bienvenue</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">09h00</span>
+                        <span class="block text-sm text-gray-500">Samedi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="coffee" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Petit Déjeuner</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">10h30</span>
+                        <span class="block text-sm text-gray-500">Samedi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-neutral text-brand-darktext rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="sun" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Temps Libre</h3>
+                        <p class="text-lg text-gray-600">Profitez de l'hôtel et de ses alentours</p>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">16h00</span>
+                        <span class="block text-sm text-gray-500">Samedi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="heart" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Cérémonie Laïque</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</d>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">17h00</span>
+                        <span class="block text-sm text-gray-500">Samedi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="wine" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Vin d'Honneur</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
+                    </div>
+                </div>
+                
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">20h00</span>
+                        <span class="block text-sm text-gray-500">Samedi</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="utensils" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Dîner & Soirée</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
+                    </div>
+                </div>
+
+                <!-- Bloc Événement -->
+                <div class="flex flex-col sm:flex-row items-center">
+                    <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
+                        <span class="text-3xl font-bold text-brand-primary">11h30</span>
+                        <span class="block text-sm text-gray-500">Dimanche</span>
+                    </div>
+                    <div class="flex-shrink-0 w-16 h-16 bg-brand-primary text-white rounded-full flex items-center justify-center mb-4 sm:mb-0 sm:mr-8">
+                        <i data-lucide="croissant" class="lucide-icon"></i>
+                    </div>
+                    <div class="text-center sm:text-left">
+                        <h3 class="text-2xl font-semibold text-brand-darktext">Brunch</h3>
+                        <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== Section Lieux =========== -->
+    <section id="lieux" class="py-20 bg-brand-lightbg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-script text-6xl text-brand-primary mb-12">Les Lieux</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Carte Lieu 1 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="h-48 bg-brand-neutral flex items-center justify-center">
+                        <!-- Placeholder pour carte/image -->
+                        <i data-lucide="map-pin" class="h-16 w-16 text-brand-primary"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Cérémonie Civile</h3>
+                        <p class="text-xl font-light text-brand-primary mb-4">Mairie de Colmar</p>
+                        <p class="text-gray-600">
+                            6 Avenue Raymond Poincaré<br>
+                            68000 Colmar
+                        </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Mairie+de+Colmar" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
+                            Voir sur la carte
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Carte Lieu 2 -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="h-48 bg-brand-neutral flex items-center justify-center">
+                        <!-- Placeholder pour carte/image -->
+                        <i data-lucide="hotel" class="h-16 w-16 text-brand-primary"></i>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Célébrations & Hébergement</h3>
+                        <p class="text-xl font-light text-brand-primary mb-4">Hôtel Val-Vignes</p>
+                        <p class="text-gray-600">
+                            23 Chemin Wall<br>
+                            67600 Saint-Hippolyte
+                        </p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hôtel+Val-Vignes+Saint-Hippolyte" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
+                            Voir sur la carte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========== Section Infos Pratiques =========== -->
+    <section id="infos" class="py-20 bg-white relative overflow-hidden">
+        <!-- Fond décoratif vignes (très léger) -->
+        <div class="absolute inset-0 vine-background opacity-5"></div>
+        
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-center font-script text-6xl text-brand-primary mb-12">Infos Pratiques</h2>
+            
+            <div class="mb-10">
+                <i data-lucide="key-round" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
+                <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Hébergement</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Parce que votre présence compte énormément pour nous, 
+                    <strong class="font-semibold text-brand-primary">les mariés ont le plaisir de vous offrir votre chambre</strong> 
+                    à l'Hôtel Val-Vignes tout au long du séjour.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mt-2">
+                    Nous nous occupons de la réservation pour vous.
+                </p>
+            </div>
+            
+            <div class="mb-10">
+                <i data-lucide="gift" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
+                <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Liste de Mariage</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Votre présence est notre plus beau cadeau. Si vous souhaitez néanmoins nous gâter, une urne sera à disposition le jour J.
+                </p>
+            </div>
+            
+            <div>
+                <i data-lucide="mail" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
+                <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Contact</h3>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Pour toute question, n'hésitez pas à nous contacter :
+                </p>
+                <a href="mailto:jeremy.lucas.olivierzaug@gmail.com" class="text-lg text-brand-primary font-semibold hover:underline">
+                    jeremy.lucas.olivierzaug@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- =========== Section RSVP =========== -->
+    <section id="rsvp" class="py-20 bg-brand-neutral text-center">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center font-script text-6xl text-brand-primary mb-6">Confirmez votre présence</h2>
+            <p class="text-xl text-brand-darktext mb-8">
+                Votre réponse est souhaitée avant le <strong class="font-semibold">31 Janvier 2026</strong>.
+            </p>
+            <a href="mailto:jeremy.lucas.olivierzaug@gmail.com?subject=RSVP%20Mariage%20Jérémy%20%26%20Lucas%20-%2012.06.2026&body=Bonjour%20Jérémy%20et%20Lucas%2C%0A%0AJe%2FNous%20serai(ons)%20pr%C3%A9sent(s)%20%C3%A0%20votre%20mariage.%0A%0ANom(s)%20:%20%5BVotre%2FVos%20nom(s)%20ici%5D%0A%0A%C3%80%20bient%C3%B4t%20!%0A"
+               class="inline-block bg-brand-primary text-white text-lg font-semibold px-10 py-4 rounded-lg shadow-lg hover:bg-opacity-90 transition-colors duration-300">
+                Répondre par Email
+            </a>
+        </div>
+    </section>
+
+    <!-- =========== Pied de Page =========== -->
+    <footer class="bg-white pt-10">
+        <!-- Bordure décorative montagnes -->
+        <div class="mountain-border"></div>
+        <div class="bg-brand-primary text-center py-6">
+            <p class="text-white font-light">
+                Jérémy & Lucas | 12.06.2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script pour le menu mobile et icônes -->
+    <script>
+        // Attendre que le DOM soit chargé pour exécuter les scripts
+        document.addEventListener('DOMContentLoaded', () => {
+            // Remplacement des icônes Lucide
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                } else {
+                    console.error('Lucide icons script not loaded.');
+                }
+            } catch (e) {
+                console.error('Error creating lucide icons:', e);
+            }
+
+            // Logique du menu mobile
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Fermer le menu en cliquant sur un lien
+            if (mobileLinks) {
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (mobileMenu) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
