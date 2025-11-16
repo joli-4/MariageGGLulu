@@ -2,7 +2,7 @@
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariage Jérémy & Lucas - 12 Juin 2026</title>
     
     <!-- Tailwind CSS -->
@@ -10,10 +10,7 @@
     
     <!-- Polices Google (Poppins pour le corps, Great Vibes pour le script) -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icônes (pour le programme) -->
-    <script src="https://unpkg.com/lucide-react@0.378.0/dist/umd/lucide.min.js"></script>
-
+        
     <!-- Configuration personnalisée de Tailwind -->
     <script>
         tailwind.config = {
@@ -63,13 +60,6 @@
             background-position: center center;
         }
         
-        /* Ajustement pour les icônes Lucide */
-        .lucide-icon {
-            width: 1.25rem;
-            height: 1.25rem;
-            stroke-width: 2;
-        }
-
         /* Style pour le séparateur de feuilles */
         .leaf-separator {
             background-image: url('https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/leaf.svg');
@@ -101,18 +91,19 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo/Initiales à gauche -->
                 <div class="flex-shrink-0">
-                    <a href="#accueil" class="font-script text-3xl text-brand-primary">
-                        J & L
+                    <a href="#accueil" class="block">
+                        <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/dessin.svg" alt="Monogramme J&L" class="h-12 w-auto">
                     </a>
                 </div>
                 <!-- Liens de navigation (pour écrans larges) -->
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
-                        <a href="#accueil" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Accueil</a>
-                        <a href="#programme-details" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Programme</a>
-                        <a href="#lieux" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Lieux</a>
-                        <a href="#infos" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Infos Pratiques</a>
-                        <a href="#rsvp" class="bg-brand-primary text-white hover:bg-opacity-90 px-3 py-2 rounded-md text-sm font-medium">RSVP</a>
+                        <a href="#tab-nav" data-tab-link="programme" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Programme & Infos</a>
+                        <a href="#tab-nav" data-tab-link="acces" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Comment y accéder</a>
+                        <a href="#tab-nav" data-tab-link="temps-libre" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Temps libre</a>
+                        <a href="#tab-nav" data-tab-link="sauna" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Réservation Sauna</a>
+                        <a href="#tab-nav" data-tab-link="vos-photos" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Vos photos</a>
+                        <a href="#tab-nav" data-tab-link="photos-officielles" class="text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-sm font-medium">Photos du photographe</a>
                     </div>
                 </div>
                 <!-- Menu Burger (pour mobiles) -->
@@ -126,11 +117,12 @@
         <!-- Menu mobile (caché par défaut) -->
         <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#accueil" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Accueil</a>
-                <a href="#programme-details" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Programme</a>
-                <a href="#lieux" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Lieux</a>
-                <a href="#infos" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Infos Pratiques</a>
-                <a href="#rsvp" class="block bg-brand-primary text-white hover:bg-opacity-90 px-3 py-2 rounded-md text-base font-medium">RSVP</a>
+                <a href="#tab-nav" data-tab-link="programme" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Programme & Infos</a>
+                <a href="#tab-nav" data-tab-link="acces" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Comment y accéder</a>
+                <a href="#tab-nav" data-tab-link="temps-libre" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Temps libre</a>
+                <a href="#tab-nav" data-tab-link="sauna" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Réservation Sauna</a>
+                <a href="#tab-nav" data-tab-link="vos-photos" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Vos photos</a>
+                <a href="#tab-nav" data-tab-link="photos-officielles" class="block text-gray-600 hover:text-brand-primary px-3 py-2 rounded-md text-base font-medium">Photos du photographe</a>
             </div>
         </div>
     </header>
@@ -139,6 +131,9 @@
     <section id="accueil" class="pt-16 pb-20 text-center relative overflow-hidden">
         <!-- Fond décoratif vignes (léger) -->
         <div class="absolute inset-0 vine-background opacity-10"></div>
+        
+        <!-- Image de fond floutée -->
+        <img src="https://res.cloudinary.com/easymountain/f_auto,q_auto,w_1200/v1732204424/web/prod/routes/5fdcdc9e0bb22/saint-hippolyte-et-secrets-de-vignerons" alt="" class="absolute inset-0 w-full h-full object-cover blur-sm grayscale opacity-30" loading="lazy">
         
         <div class="relative z-10 max-w-4xl mx-auto px-4">
             <!-- Logo Monogramme -->
@@ -151,21 +146,20 @@
                 Nous sommes heureux de vous inviter à notre mariage
             </p>
             <h2 class="font-sans text-3xl sm:text-4xl font-semibold text-brand-primary tracking-wider">
-                LE 12 JUIN 2026
+                DU 12 AU 14 JUIN 2026
             </h2>
 
-            <!-- NOUVEAU: Compteur -->
+            <!-- Compteur -->
             <div id="countdown" class="flex justify-center space-x-4 sm:space-x-8 mt-8">
                 <div><span id="days" class="text-4xl sm:text-5xl font-semibold text-brand-primary">00</span><span class="block text-sm text-brand-darktext">Jours</span></div>
                 <div><span id="hours" class="text-4xl sm:text-5xl font-semibold text-brand-primary">00</span><span class="block text-sm text-brand-darktext">Heures</span></div>
                 <div><span id="minutes" class="text-4xl sm:text-5xl font-semibold text-brand-primary">00</span><span class="block text-sm text-brand-darktext">Minutes</span></div>
                 <div><span id="seconds" class="text-4xl sm:text-5xl font-semibold text-brand-primary">00</span><span class="block text-sm text-brand-darktext">Secondes</span></div>
             </div>
-            <!-- FIN NOUVEAU: Compteur -->
         </div>
     </section>
 
-    <!-- =========== NOUVEAU: Section Onglets de Navigation =========== -->
+    <!-- =========== Section Onglets de Navigation =========== -->
     <section id="tab-nav" class="bg-white sticky top-16 z-40 shadow-md">
         <!-- Séparateur de feuilles -->
         <div class="leaf-separator"></div>
@@ -183,10 +177,9 @@
         <!-- Séparateur de feuilles -->
         <div class="leaf-separator"></div>
     </section>
-    <!-- FIN NOUVEAU: Section Onglets de Navigation -->
 
 
-    <!-- =========== NOUVEAU: Conteneur de contenu des onglets =========== -->
+    <!-- =========== Conteneur de contenu des onglets =========== -->
     <div id="tab-content" class="bg-brand-lightbg">
 
         <!-- Onglet 1: Programme & Infos (visible par défaut) -->
@@ -202,7 +195,7 @@
 
                     <div class="space-y-12">
                         
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- Bloc Événement -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">17h00</span>
@@ -217,7 +210,7 @@
                             </div>
                         </div>
                         
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- Bloc Événement -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">18h00</span>
@@ -232,7 +225,10 @@
                             </div>
                         </div>
                         
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- Séparateur de jour -->
+                        <hr class="my-12 border-t-2 border-dashed border-brand-neutral">
+
+                        <!-- Bloc Événement -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">09h00</span>
@@ -247,7 +243,7 @@
                             </div>
                         </div>
                         
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- Bloc Événement -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">10h30</span>
@@ -261,8 +257,8 @@
                                 <p class="text-lg text-gray-600">Profitez de l'hôtel et de ses alentours</p>
                             </div>
                         </div>
-                        
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+
+                        <!-- BLOC RESTAURÉ -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">16h00</span>
@@ -273,11 +269,11 @@
                             </div>
                             <div class="text-center sm:text-left">
                                 <h3 class="text-2xl font-semibold text-brand-darktext">Cérémonie Laïque</h3>
-                                <p class="text-lg text-gray-600">Hôtel Val-Vignes</d>
+                                <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
                             </div>
                         </div>
                         
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- BLOC RESTAURÉ -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">17h00</span>
@@ -291,8 +287,8 @@
                                 <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
                             </div>
                         </div>
-                        
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+
+                        <!-- BLOC RESTAURÉ -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">20h00</span>
@@ -307,7 +303,10 @@
                             </div>
                         </div>
 
-                        <!-- Bloc Événement (Icône MODIFIÉE) -->
+                        <!-- Séparateur de jour -->
+                        <hr class="my-12 border-t-2 border-dashed border-brand-neutral">
+
+                        <!-- BLOC RESTAURÉ -->
                         <div class="flex flex-col sm:flex-row items-center">
                             <div class="flex-shrink-0 w-32 text-center sm:text-right mb-4 sm:mb-0 sm:mr-8">
                                 <span class="text-3xl font-bold text-brand-primary">11h30</span>
@@ -321,16 +320,18 @@
                                 <p class="text-lg text-gray-600">Hôtel Val-Vignes</p>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
-
+            
             <!-- Section Lieux -->
             <section id="lieux" class="py-20 bg-brand-lightbg">
                 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 class="text-center font-script text-6xl text-brand-primary mb-12">Les Lieux</h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        
                         <!-- Carte Lieu 1 -->
                         <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                             <div class="h-48">
@@ -340,10 +341,10 @@
                                 <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Cérémonie Civile</h3>
                                 <p class="text-xl font-light text-brand-primary mb-4">Mairie de Colmar</p>
                                 <p class="text-gray-600">
-                                    6 Avenue Raymond Poincaré<br>
-                                    68000 Colmar
+                                    1 Place de la Mairie<br>
+                                    Colmar
                                 </p>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Mairie+de+Colmar" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
+                                <a href="https://www.google.com/maps/search/?api=1&query=1+Place+de+la+Mairie+Colmar" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
                                     Voir sur la carte
                                 </a>
                             </div>
@@ -352,111 +353,208 @@
                         <!-- Carte Lieu 2 -->
                         <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                             <div class="h-48">
-                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/8c/0c/ec/hotel-val-vignes.jpg?w=900&h=500&s=1" alt="Hôtel Val-Vignes" class="w-full h-full object-cover">
+                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/8c/0c/ec/hotel-val-vignes.jpg?w=900&h=500&s=1" alt="Hôtel Val-Vignes" class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="p-8 text-center">
                                 <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Célébrations & Hébergement</h3>
                                 <p class="text-xl font-light text-brand-primary mb-4">Hôtel Val-Vignes</p>
                                 <p class="text-gray-600">
                                     23 Chemin Wall<br>
-                                    67600 Saint-Hippolyte
+                                    Saint-Hippolyte
                                 </p>
                                 <a href="https://www.google.com/maps/search/?api=1&query=Hôtel+Val-Vignes+Saint-Hippolyte" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
                                     Voir sur la carte
                                 </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </section>
 
             <!-- Section Infos Pratiques -->
-            <section id="infos" class="py-20 bg-white relative overflow-hidden">
+            <section id="infos" class="py-20 bg-white">
                 <!-- Fond décoratif vignes (très léger) -->
-                <div class="absolute inset-0 vine-background opacity-5"></div>
+                <div class_ = "absolute inset-0 vine-background opacity-5"></div>
                 
-                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 class="text-center font-script text-6xl text-brand-primary mb-12">Infos Pratiques</h2>
                     
-                    <div class="mb-10">
-                        <i data-lucide="key-round" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Hébergement</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Parce que votre présence compte énormément pour nous, 
-                            <strong class="font-semibold text-brand-primary">les mariés ont le plaisir de vous offrir votre chambre</strong> 
-                            à l'Hôtel Val-Vignes tout au long du séjour.
-                        </p>
-                        <p class="text-lg text-gray-700 leading-relaxed mt-2">
-                            Nous nous occupons de la réservation pour vous.
-                        </p>
-                    </div>
-                    
-                    <div class="mb-10">
-                        <i data-lucide="gift" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Liste de Mariage</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Votre présence est notre plus beau cadeau. Si vous souhaitez néanmoins nous gâter, une urne sera à disposition le jour J.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <i data-lucide="mail" class="h-12 w-12 text-brand-primary mx-auto mb-4"></i>
-                        <h3 class="text-2xl font-semibold text-brand-darktext mb-3">Contact</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Pour toute question, n'hésitez pas à nous contacter :
-                        </p>
-                        <a href="mailto:jeremy.lucas.olivierzaug@gmail.com" class="text-lg text-brand-primary font-semibold hover:underline">
-                            jeremy.lucas.olivierzaug@gmail.com
-                        </a>
+                    <div class="space-y-8 text-lg text-brand-darktext">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Hébergement</h3>
+                            <p>
+                                Les mariés ont le plaisir de vous offrir votre chambre à l'Hôtel Val-Vignes tout au long du séjour.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Contact</h3>
+                            <p>
+                                Pour toute question, n'hésitez pas à nous contacter :
+                                <br>
+                                <a href="mailto:jeremy.lucas.olivierzaug@gmail.com" class="text-brand-primary hover:underline">jeremy.lucas.olivierzaug@gmail.com</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Section RSVP -->
-            <section id="rsvp" class="py-20 bg-brand-neutral text-center">
-                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 class="text-center font-script text-6xl text-brand-primary mb-6">Confirmez votre présence</h2>
+            <section id="rsvp" class="py-20 bg-brand-lightbg">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-center font-script text-6xl text-brand-primary mb-6">Réponse souhaitée</h2>
                     <p class="text-xl text-brand-darktext mb-8">
                         Votre réponse est souhaitée avant le <strong class="font-semibold">31 Janvier 2026</strong>.
                     </p>
-                    <a href="mailto:jeremy.lucas.olivierzaug@gmail.com?subject=RSVP%20Mariage%20Jérémy%20%26%20Lucas%20-%2012.06.2026&body=Bonjour%20Jérémy%20et%20Lucas%2C%0A%0AJe%2FNous%20serai(ons)%20pr%C3%A9sent(s)%20%C3%AA%20votre%20mariage.%0A%0ANom(s)%20:%20%5BVotre%2FVos%20nom(s)%20ici%5D%0A%0A%C3%80%20bient%C3%B4t%20!%0A"
+                    <a href="mailto:jeremy.lucas.olivierzaug@gmail.com?subject=RSVP%20Mariage%20Jérémy%20%26%20Lucas%20-%2012-14.06.2026&amp;body=Bonjour%20Jérémy%20et%20Lucas%2C%0A%0AJe%2FNous%20serai(ons)%20pr%C3%A9sent(s)%20%C3%AA%20votre%20mariage.%0A%0ANom(s)%20:%20%5BVotre%2FVos%20nom(s)%20ici%5D%0A%0A%C3%80%20bient%C3%B4t%20!%0A"
                        class="inline-block bg-brand-primary text-white text-lg font-semibold px-10 py-4 rounded-lg shadow-lg hover:bg-opacity-90 transition-colors duration-300">
                         Répondre par Email
                     </a>
                 </div>
             </section>
-
-            <!-- Pied de Page -->
-            <footer class="bg-white pt-10">
-                <!-- Bordure décorative montagnes -->
-                <div class="mountain-border"></div>
-                <div class="bg-brand-primary text-center py-6">
-                    <p class="text-white font-light">
-                        Jérémy & Lucas | 12.06.2026
-                    </p>
-                </div>
-            </footer>
         </div>
 
         <!-- Onglet 2: Comment y accéder (caché par défaut) -->
         <div id="acces-content" class="tab-pane hidden">
-            <div class="text-center py-40 max-w-2xl mx-auto">
-                <h2 class="font-script text-6xl text-brand-primary mb-4">Comment y accéder</h2>
-                <p class="text-lg text-gray-500">Cette section est en cours de préparation et contiendra bientôt les informations sur les transports, parkings et navettes.</p>
-            </div>
+            <!-- Section "Comment y accéder" -->
+            <section id="acces-details" class="py-20 bg-brand-lightbg">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-center font-script text-6xl text-brand-primary mb-12">Comment y accéder</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        
+                        <!-- Carte Lieu 1: Mairie -->
+                        <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                            <div class="h-48">
+                                <img src="https://www.archi-wiki.org/images/thumb/3/31/48_rue_des_Clefs_Colmar_61457.jpg/1200px-48_rue_des_Clefs_Colmar_61457.jpg" alt="Mairie de Colmar" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-8 text-center flex-grow">
+                                <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Cérémonie Civile</h3>
+                                <p class="text-xl font-light text-brand-primary mb-4">Mairie de Colmar</p>
+                                <p class="text-gray-600">
+                                    1 Place de la Mairie<br>
+                                    Colmar
+                                </p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=1+Place+de+la+Mairie+Colmar" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
+                                    Voir sur la carte
+                                </a>
+                            </div>
+                            <div class="p-8 pt-0 text-center border-t border-gray-100">
+                                <h4 class="text-xl font-semibold text-brand-darktext mb-3 mt-4">Accès & Parking</h4>
+                                <ul class="text-gray-700 space-y-2 text-left list-disc list-inside">
+                                    <li>Un parking public, le <strong>Parking de la Mairie</strong>, est disponible à proximité.</li>
+                                    <li><strong>Mobilités douces :</strong> La mairie se trouve à environ 15 minutes à pied de la gare de Colmar.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Carte Lieu 2: Hôtel -->
+                        <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                            <div class="h-48">
+                                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/8c/0c/ec/hotel-val-vignes.jpg?w=900&h=500&s=1" alt="Hôtel Val-Vignes" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                            <div class="p-8 text-center flex-grow">
+                                <h3 class="text-2xl font-semibold text-brand-darktext mb-2">Célébrations & Hébergement</h3>
+                                <p class="text-xl font-light text-brand-primary mb-4">Hôtel Val-Vignes</p>
+                                <p class="text-gray-600">
+                                    23 Chemin Wall<br>
+                                    Saint-Hippolyte
+                                </p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Hôtel+Val-Vignes+Saint-Hippolyte" target="_blank" rel="noopener noreferrer" class="inline-block mt-4 text-brand-primary font-semibold hover:underline">
+                                    Voir sur la carte
+                                </a>
+                            </div>
+                            <div class="p-8 pt-0 text-center border-t border-gray-100">
+                                <h4 class="text-xl font-semibold text-brand-darktext mb-3 mt-4">Accès & Parking</h4>
+                                <ul class="text-gray-700 space-y-2 text-left list-disc list-inside">
+                                    <li>Un <strong>parking est disponible</strong> directement à l'hôtel pour les clients.</li>
+                                    <li><strong>Mobilités douces :</strong> La gare la plus proche est la <strong>Gare de Sélestat</strong> (à 10 minutes de route). Nous pourrons venir vous y chercher.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- Onglet 3: Temps libre (caché par défaut) -->
         <div id="temps-libre-content" class="tab-pane hidden">
-            <div class="text-center py-40 max-w-2xl mx-auto">
-                <h2 class="font-script text-6xl text-brand-primary mb-4">Temps libre</h2>
-                <p class="text-lg text-gray-500">Cette section est en cours de préparation et contiendra bientôt des suggestions d'activités à l'hôtel et aux alentours.</p>
-            </div>
+            <!-- Section "Temps Libre" -->
+            <section id="temps-libre-details" class="py-20 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-center font-script text-6xl text-brand-primary mb-4">Temps Libre & Préparatifs</h2>
+                    
+                    <div class="max-w-3xl mx-auto text-left text-lg text-brand-darktext space-y-4 mb-16">
+                        <p>
+                            Le samedi matin est un moment de détente et de convivialité avant le grand moment ! Vous aurez du temps libre après le petit-déjeuner et jusqu'à <strong>16h00</strong>, heure de début de notre cérémonie laïque.
+                        </p>
+                        <p>
+                            Ce temps est également celui de votre préparation. Pour vous restaurer, des en-cas seront servis de <strong>11h30 à 14h00</strong> dans le caveau.
+                        </p>
+                        <p>
+                            Nous vous proposons de profiter de ce moment comme vous le souhaitez, que ce soit en vous relaxant sur place ou en explorant les magnifiques environs.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        
+                        <!-- Activités sur place -->
+                        <div class="bg-brand-lightbg p-8 rounded-lg shadow-lg">
+                            <h3 class="text-3xl font-semibold text-brand-primary mb-6">Activités sur place</h3>
+                            <p class="text-gray-700 mb-6">
+                                Pour ceux qui préfèrent rester sur le lieu de réception et profiter de l'ambiance (et prendre leur temps pour se préparer !) :
+                            </p>
+                            <ul class="space-y-4 text-gray-800">
+                                <li class="flex items-start">
+                                    <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/leaf.svg" alt="" class="w-5 h-5 mr-3 mt-1 flex-shrink-0">
+                                    <span><strong>Dégustation de Vin (13h00) :</strong> Nous organisons une dégustation commentée avec des vignerons locaux de Saint-Hippolyte.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/leaf.svg" alt="" class="w-5 h-5 mr-3 mt-1 flex-shrink-0">
+                                    <span><strong>Détente au caveau :</strong> Un billard et divers jeux de société seront à votre disposition.</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/leaf.svg" alt="" class="w-5 h-5 mr-3 mt-1 flex-shrink-0">
+                                    <span><strong>Activités d'extérieur :</strong> Profitez des jardins et des jeux en plein air (si la météo alsacienne est avec nous !).</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <img src="https://raw.githubusercontent.com/joli-4/MariageGGLulu/refs/heads/main/leaf.svg" alt="" class="w-5 h-5 mr-3 mt-1 flex-shrink-0">
+                                    <span><strong>Sauna :</strong> Pour un moment de pure relaxation. <a href="#tab-nav" class="text-brand-primary font-semibold hover:underline internal-tab-link" data-tab-link="sauna">[Réserver un créneau]</a></span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Suggestions à proximité -->
+                        <div class="bg-brand-lightbg p-8 rounded-lg shadow-lg">
+                            <h3 class="text-3xl font-semibold text-brand-primary mb-6">Suggestions à proximité</h3>
+                            <p class="text-gray-700 mb-6">
+                                Si vous avez l'âme d'un explorateur, les environs regorgent de merveilles.
+                            </p>
+                            
+                            <!-- Alerte Temps -->
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-md my-6" role="alert">
+                                <p class="font-bold">Attention au temps !</p>
+                                <p>Ces visites demandent environ 2h chacune. Prévoyez suffisamment de temps pour rentrer et vous préparer pour 16h00.</p>
+                            </div>
+
+                            <ul class="space-y-4 text-gray-800">
+                                <li><strong>Visite du Château du Haut-Koenigsbourg :</strong> Une forteresse médiévale restaurée avec une vue imprenable sur la plaine d'Alsace.</li>
+                                <li><strong>La Montagne des Singes :</strong> Une promenade amusante au milieu de plus de 200 macaques de Barbarie en liberté.</li>
+                                <li><strong>La Volerie des Aigles :</strong> Un spectacle impressionnant de rapaces en vol libre dans les ruines d'un château.</li>
+                                <li><strong>Flânerie à Ribeauvillé :</strong> Découvrez l'un des plus beaux villages de la Route des Vins, avec ses maisons à colombages.</li>
+                                <li><strong>Balade dans les vignes :</strong> Les chemins de vigne autour de Saint-Hippolyte sont accessibles directement à pied.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- Onglet 4: Réservation Sauna (caché par défaut) -->
         <div id="sauna-content" class="tab-pane hidden">
-            <div class="text-center py-40 max-w-2xl mx-auto">
+            <div class="text-center py-40 max-w-2xl mx-auto px-4">
                 <h2 class="font-script text-6xl text-brand-primary mb-4">Réservation Sauna</h2>
                 <p class="text-lg text-gray-500">Cette section est en cours de préparation et vous permettra bientôt de réserver un créneau pour le sauna.</p>
             </div>
@@ -464,7 +562,7 @@
 
         <!-- Onglet 5: Vos photos (caché par défaut) -->
         <div id="vos-photos-content" class="tab-pane hidden">
-            <div class="text-center py-40 max-w-2xl mx-auto">
+            <div class="text-center py-40 max-w-2xl mx-auto px-4">
                 <h2 class="font-script text-6xl text-brand-primary mb-4">Vos photos</h2>
                 <p class="text-lg text-gray-500">Cette section est en cours de préparation et vous permettra de partager vos photos du mariage.</p>
             </div>
@@ -472,14 +570,25 @@
 
         <!-- Onglet 6: Photos du photographe (caché par défaut) -->
         <div id="photos-officielles-content" class="tab-pane hidden">
-            <div class="text-center py-40 max-w-2xl mx-auto">
+            <div class="text-center py-40 max-w-2xl mx-auto px-4">
                 <h2 class="font-script text-6xl text-brand-primary mb-4">Photos du photographe</h2>
-                <p class="text-lg text-gray-500">Cette section est en cours de préparation et contiendra la galerie des photos officielles après le mariage.</p>
+                <p class="text-lg text-gray-500">Vous retrouverez ici le lien vers les photos du photographe après le mariage.</p>
             </div>
         </div>
 
     </div>
-    <!-- FIN NOUVEAU: Conteneur de contenu des onglets -->
+    <!-- FIN Conteneur de contenu des onglets -->
+
+
+    <!-- =========== Pied de Page =========== -->
+    <footer>
+        <div class="mountain-border"></div>
+        <div class="bg-brand-primary text-center py-6">
+            <p class="text-white font-light">
+                Jérémy & Lucas | 12-14.06.2026
+            </p>
+        </div>
+    </footer>
 
 
     <!-- Script pour le menu mobile, icônes, compteur et onglets -->
@@ -487,21 +596,11 @@
         // Attendre que le DOM soit chargé pour exécuter les scripts
         document.addEventListener('DOMContentLoaded', () => {
             
-            // 1. Remplacement des icônes Lucide
-            try {
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                } else {
-                    console.error('Lucide icons script not loaded.');
-                }
-            } catch (e) {
-                console.error('Error creating lucide icons:', e);
-            }
-
-            // 2. Logique du menu mobile
+            // 1. Logique du menu mobile
             const menuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = mobileMenu.querySelectorAll('a');
+            const navLinks = document.querySelectorAll('header a[data-tab-link]'); // Liens de nav qui activent des onglets
 
             if (menuButton && mobileMenu) {
                 menuButton.addEventListener('click', () => {
@@ -520,7 +619,7 @@
                 });
             }
 
-            // 3. NOUVEAU: Logique du Compteur
+            // 2. Logique du Compteur
             const weddingDate = new Date("2026-06-12T00:00:00").getTime();
             const countdownElement = document.getElementById('countdown');
             if (countdownElement) {
@@ -552,26 +651,62 @@
                 }, 1000);
             }
 
-            // 4. NOUVEAU: Logique des Onglets
+            // 3. Logique des Onglets
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabPanes = document.querySelectorAll('.tab-pane');
+            const internalTabLinks = document.querySelectorAll('.internal-tab-link');
 
+            // Fonction pour changer d'onglet
+            function activateTab(tabId) {
+                // Désactiver tous les boutons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Cacher tous les panneaux
+                tabPanes.forEach(pane => pane.classList.add('hidden'));
+
+                // Activer le bouton et le panneau correspondants
+                const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                const activePane = document.getElementById(`${tabId}-content`);
+                
+                if(activeButton) {
+                    activeButton.classList.add('active');
+                }
+                if(activePane) {
+                    activePane.classList.remove('hidden');
+                }
+            }
+
+            // Gérer les clics sur les boutons d'onglets
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const tabId = button.getAttribute('data-tab');
+                    activateTab(tabId);
+                });
+            });
 
-                    // Désactiver tous les boutons
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    // Cacher tous les panneaux
-                    tabPanes.forEach(pane => pane.classList.add('hidden'));
+            // Gérer les clics sur les liens de navigation (header/mobile)
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Ne pas empêcher le défilement par défaut (le href="#tab-nav" s'en charge)
+                    const tabId = link.getAttribute('data-tab-link');
+                    if (tabId) {
+                        activateTab(tabId);
+                    }
+                });
+            });
 
-                    // Activer le bouton cliqué
-                    button.classList.add('active');
-                    // Afficher le panneau correspondant
-                    document.getElementById(tabId + '-content').classList.remove('hidden');
-
-                    // Optionnel: remonter en haut de la section des onglets
-                    // document.getElementById('tab-nav').scrollIntoView({ behavior: 'smooth' });
+            // Gérer les clics sur les liens internes aux onglets (comme le lien Sauna)
+            internalTabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); // Empêcher le défilement par défaut
+                    const tabId = link.getAttribute('data-tab-link');
+                    if (tabId) {
+                        activateTab(tabId);
+                        // Faire défiler jusqu'à la barre d'onglets pour montrer que le changement a eu lieu
+                        const tabNav = document.getElementById('tab-nav');
+                        if(tabNav) {
+                            tabNav.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
                 });
             });
 
